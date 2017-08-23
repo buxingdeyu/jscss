@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<script type="text/javascript" src="lib/requirejs-2.3.5/require.js"></script>
+	<link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.12.1/jquery-ui.css" />
+	<script type="text/javascript">
+		require.config({
+		baseUrl : '.',
+		paths : {
+			'abspath' : location.pathname.replace(/\/[^\/]+$/, '/'),
+			'jquery' : 'lib/jquery-1.12.4/jquery.min',
+			'jquery-ui' : 'lib/jquery-ui-1.12.1/jquery-ui.min',
+			'test01':'js/test01'
+		},
+		shim : {
+			'jquery-ui' :  [ 'jquery' ]
+		},
+	});
+
+	require([ 'test01' ], function(test01) {
+		test01.init();
+	});
+
+	</script>
+</head>
+<body>
+
+	<div>
+		<input id="autocomplete" title="type &quot;a&quot;">
+	</div>
+	
+</body>
+</html>
